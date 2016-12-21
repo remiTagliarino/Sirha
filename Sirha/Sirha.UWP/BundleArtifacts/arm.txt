@@ -1,0 +1,2 @@
+MainPackage=D:\Projects\Sirha\Sirha\Sirha.UWP\bin\ARM\Debug\Sirha.UWP_1.0.1.0_ARM_Debug.appx
+SymbolPackage=D:\Projects\Sirha\Sirha\Sirha.UWP\AppPackages\Sirha.UWP_1.0.1.0_Debug_Test\Sirha.UWP_1.0.1.0_ARM_Debug.appxsym

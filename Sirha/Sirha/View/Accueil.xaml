@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sirha.View.Accueil"
+             xmlns:behaviors="clr-namespace:Sirha.Behaviors;assembly=Sirha"
+             xmlns:colors="clr-namespace:Sirha.Styles;assembly=Sirha"
+             Title="Recherche Client">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+        iOS="0, 20, 0, 0" />
+    </ContentPage.Padding>
+   
+    <RelativeLayout  BackgroundColor="White"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout x:Name="RechercheLayout" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, 
+                                        Property=Width,
+                                        Factor=0.2}"
+                     RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, 
+                                        Property=Height,
+                                        Factor=1}"
+                     RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, 
+                                        Constant=0}"
+                     RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, 
+                                        Constant=0}"
+                      Orientation="Vertical" Spacing="10">
+        
+                <Frame   OutlineColor="Silver" Margin ="25" >
+                    <StackLayout Orientation="Vertical" Spacing="10"  >
+                        <Entry x:Name="Nom" AutomationId="NomClient" Placeholder="Nom" Text="{Binding Nom}"  Style="{StaticResource EntryStyleAccueil}"></Entry>
+                        <Entry x:Name="Commercial" AutomationId="CommercialClient" Placeholder="Commercial" Text="{Binding Commercial}"  Style="{StaticResource EntryStyleAccueil}"></Entry>
+                        <Entry x:Name="Adresse" AutomationId="AdresseClient" Placeholder="Adresse" Text="{Binding Adresse}"  Style="{StaticResource EntryStyleAccueil}"></Entry>
+                        <Entry x:Name="Cp" AutomationId="CpClient" Placeholder="Code postal" Text="{Binding CodePostal}" Keyboard="Numeric"  Style="{StaticResource EntryStyleAccueil}">
+                              <Entry.Behaviors>
+                                <behaviors:IntValidationBehavior/>
+                              </Entry.Behaviors>
+                        </Entry>
+                        <Entry x:Name="Ville" AutomationId="VilleClient" Placeholder="Ville" Text="{Binding Ville}" Style="{StaticResource EntryStyleAccueil}"></Entry>
+                        <Entry x:Name="Region"  AutomationId="RegionClient" Placeholder="Région" Text="{Binding Region}"  Style="{StaticResource EntryStyleAccueil}"></Entry>
+                        <Button Text="Rechercher" AutomationId="Rechercher"  Command="{Binding Search}" VerticalOptions="EndAndExpand"></Button>
+                    </StackLayout>
+                </Frame>
+                <Frame OutlineColor="Silver" Margin ="25" >
+                    <Button HorizontalOptions ="Center" VerticalOptions="Center" Text="+" ></Button>
+                </Frame>
+          
+        </StackLayout>
+        <Frame OutlineColor="Silver" Margin ="25"
+                    RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, 
+                                        Property=Width,
+                                        Factor=0.8}"
+                     RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, 
+                                        Property=Height,
+                                        Factor=1}"
+                     RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.2}"
+                     RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, 
+                                        Constant=0}">
+
+            <ListView ItemsSource="{Binding listeClients}"
+                     SeparatorVisibility="None"
+                     Margin="6" x:Name="Liste">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical"
+                                              VerticalOptions="Center"
+                                              Margin="0,3,0,0">
+                                <RelativeLayout >
+                                    <Label Text="{Binding Nom}" TextColor="Black"
+                                                                HeightRequest="50"
+                                                                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.05}"
+                                                                RelativeLayout.YConstraint="{ConstraintExpression Type=Constant,Constant=0}"/>
+                                    <Label Text="{Binding Adresse}" HeightRequest="50"
+                                                                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.25}"
+                                                                 RelativeLayout.YConstraint="{ConstraintExpression Type=Constant,Constant=0}"  />
+                                    <Label Text="{Binding Ville}" HeightRequest="50"
+                                                                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5}"
+                                                                 RelativeLayout.YConstraint="{ConstraintExpression Type=Constant,Constant=0}" />
+                                </RelativeLayout>
+                                <BoxView HeightRequest="1"
+                                         VerticalOptions="FillAndExpand"
+                                         HorizontalOptions="FillAndExpand"
+                                         Color="Silver"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Frame>
+    </RelativeLayout>
+
+</ContentPage>

@@ -1,0 +1,2 @@
+D:\Projects\Sirha\Sirha\Sirha.UWP\Sirha.UWP.csproj;x64
+D:\Projects\Sirha\Sirha\Sirha\Sirha.csproj;neutral
