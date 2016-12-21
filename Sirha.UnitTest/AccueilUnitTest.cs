@@ -31,7 +31,7 @@ namespace Sirha.UnitTest
         {
             //Initialisation variable
             var vm = new AccueilViewModel();
-            vm.Adresse = "mlamzl";
+            vm.Adresse = "";
             vm.CodePostal = "";
             vm.Commercial = "";
             vm.Nom = "";
