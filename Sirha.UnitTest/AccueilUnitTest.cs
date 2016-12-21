@@ -31,16 +31,16 @@ namespace Sirha.UnitTest
         {
             //Initialisation variable
             var vm = new AccueilViewModel();
-            vm.Adresse = "";
+            vm.Adresse = "test";
             vm.CodePostal = "";
             vm.Commercial = "";
             vm.Nom = "";
             vm.Region = "";
             vm.Ville = "";
             //éxécution méthode
-            var result = vm.CanSearch();
+            bool result = vm.CanSearch();
             //test
-            Assert.IsTrue(result == true, "La fonction doit retournée true");
+            Assert.IsTrue(result == false, "La fonction doit retournée true");
         }
     }
 }
